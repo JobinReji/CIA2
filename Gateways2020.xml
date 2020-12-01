@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CHRIST>
+<CS ID="1">
+<STU-NAME>Rony</STU-NAME>
+<STU-BRANCH>MSc</STU-BRANCH>
+<STU-COLLEGE>St. Mary</STU-COLLEGE>
+<STU-EMAIL>rony234@gmail.com</STU-EMAIL>
+</CS>
+<CS ID="2">
+<STU-NAME>Jose</STU-NAME>
+<STU-BRANCH>MSw</STU-BRANCH>
+<STU-COLLEGE>Acharya Institute</STU-COLLEGE>
+<STU-EMAIL>jose123@gmail.com</STU-EMAIL>
+</CS>
+<CS ID="3">
+<STU-NAME>Shine</STU-NAME>
+<STU-BRANCH>MCA</STU-BRANCH>
+<STU-COLLEGE>St. Joseph</STU-COLLEGE>
+<STU-EMAIL>shine81@gmail.com</STU-EMAIL>
+</CS>
+<CS ID="4">
+<STU-NAME>Don</STU-NAME>
+<STU-BRANCH>Mtech</STU-BRANCH>
+<STU-COLLEGE>Christ University</STU-COLLEGE>
+<STU-EMAIL>don789@gmail.com</STU-EMAIL>
+</CS>
+<CS ID="5">
+<STU-NAME>Fred</STU-NAME>
+<STU-BRANCH>MBA</STU-BRANCH>
+<STU-COLLEGE>Ramaiya Collage</STU-COLLEGE>
+<STU-EMAIL>fred39@gmail.com</STU-EMAIL>
+</CS>
+</CHRIST>

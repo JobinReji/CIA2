@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registeration</title>
+        <link rel="icon" type="image/x-icon" href="pngegg.png" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <style>
+            /* Chrome, Safari, Edge, Opera */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+            body
+            {
+                background-color:moccasin ;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+            h1
+            {
+                color: #3DC15D;
+                margin-left: 40%;
+                margin-bottom: 0px;
+                margin-top: 50px;
+            }
+            h6
+            {
+                color: #3DAEC1;
+                margin-left: 48%;
+                margin-top: 0px;
+                margin-bottom: 100px;
+            }
+            .box
+            {
+                border: 2px solid red;
+                border-radius: 5%;
+                align-content: center;
+                margin-left: 250px;
+                margin-right: 250px;
+                padding: 10px;
+                margin-bottom: 100px;
+                background-color: black;
+                
+            }
+            input,textarea
+            {
+                border: 2px solid #3DAEC1;
+                background-color: transparent;
+                font-size: 1.25em;
+                color: #3DAEC1;
+                height: 50px;
+                width: 250px;
+                margin: 10px;
+                text-align: center;
+                margin-left: 35%;
+                margin-right: 35%;
+            }
+            #button
+            {
+                color: #3DC15D;
+                border-color: #3DC15D;
+            }
+            #button:hover
+            {
+                color: black;
+                border-color: #3DC15D;
+                background-color: #3DAEC1;
+                font-weight: 600;
+            }
+            h3
+            {
+                color: red;
+                font-weight: 300;
+                margin-left: 37%;
+                font-weight: 600;
+            }
+            
+            input[type="checkbox" i]
+            {
+                padding: 0px;
+                margin: 0px;
+                height: 15px;
+                width: 15px;
+            }
+            label
+            {
+                color: white;
+                font-size: 1em;
+                margin-left: 34%;
+                padding: 0px;
+            }
+        </style>  
+    </head>
+    <body>
+        <div class="wrap">
+            <h1>Gateways 2020</h1>
+            <h6>TECHOVID</h6>
+            
+            <form name="myForm" class="box" onsubmit=" return validate()" action="Visitors.html">
+                <h3>Registration Form</h3><br>
+                <label id="remem">Save cookies for better performance </label>
+                <input type="checkbox" id="RememberMe">
+                <span class="checkmark"></span>
+            </label>
+                <input id="name" type="text" onkeypress="return test(event)" onkeyup="javascript:capitalize(this.id, this.value);" placeholder="Name" title="Name"><br>
+                <input id="email" type="text" placeholder="Email ID" name="email" title="Email ID:write valid email address"><br>
+                <input id="branch" type="text" placeholder="Branch" onkeyup="javascript:capitalize(this.id, this.value);" title="Branch"><br>
+                <input id="colName" type="text" placeholder="Collage/University Name" title="Collage/University Name"><br>
+                <input id="state" type="text" placeholder="State" onkeyup="javascript:capitalize(this.id, this.value);" title="State"><br>
+                <textarea title="Write your permanent address" placeholder="Permanent address" id="address"></textarea><br>
+                <input id="age" type="number" placeholder="Age" maxlength="2" title="Age"><br>
+                <input id="phno" type="tel" placeholder="Phone no" maxlength="10" title="Phone number"><br>
+                <input id="uname" type="text" placeholder="Username" title="Username" onkeyup="javascript:capitalize(this.id, this.value);"><br>                
+                <input id="pwd" type="password" placeholder="Password" title="PASSWORD SHOULD CONTAIN: atleast 8 characters, one lowercase letter, one uppercase letter, one numeric digit, one special character" ><br>
+                <input id="button" type="submit" value="Submit" >
+            </form>
+        </div>
+        <script>
+            window.onload = function ()
+            {
+                if (document.cookie.length != 0) 
+                {
+                    document.getElementById("RememberMe").checked=true;
+
+                    var AllCookies, Temp;
+                    AllCookies = document.cookie.split(';');
+                    for (var i=0; i < AllCookies.length; i++) 
+                    {
+                        // alert(AllCookies[i]);
+                        Temp = AllCookies[i].split('=');
+                        // alert(Temp);
+                        if (Temp[0] == "uname")
+                        {
+                            document.getElementById("uname").value = Temp[1];
+                        }
+                        if(Temp[0] == "phno")
+                        {   
+                            document.getElementById("phno").value = Temp[1];
+                        }
+                    }
+
+                }
+            }
+            function validate()
+            {
+                var mailformat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+                let name=document.getElementById("name");
+                let email=document.getElementById("email");
+                let branch=document.getElementById("branch");
+                let colName=document.getElementById("colName");
+                let state=document.getElementById("state");
+                let address=document.getElementById("address");
+                let age=document.getElementById("age");
+                let phno=document.getElementById("phno");
+                let uname=document.getElementById("uname");
+                let pwd=document.getElementById("pwd");
+                if(name.value.trim()=="")
+               {
+                   alert("Name is required");
+                   return(false);
+               } 
+               else if(email.value.trim()=="")
+               {
+                   alert("Email is required");
+                   return(false);
+               }
+               else if(!email.value.match(mailformat))
+               {
+                   alert("Write your valid email id eg- abc@universityname.in");
+                   return(false);
+               }
+               else if(branch.value.trim()=="")
+               {
+                   alert("Branch is required");
+                   return(false);
+               }
+               else if(colName.value.trim()=="")
+               {
+                   alert("Collage/University Name is required");
+                   return(false);
+               }
+               else if(state.value.trim()=="")
+               {
+                   alert("State is required");
+                   return(false);
+               }
+               else if(address.value.trim()=="")
+               {
+                   alert("Address is required");
+                   return(false);
+               }
+               else if(age.value.trim()=="")
+               {
+                   alert("Age is required");
+                   return(false);
+               }
+                else if(age.value<=0||age.value>80)
+                {
+                    alert("Please enter a valid age");
+                    return false;
+                }
+               else if(phno.value.trim()=="")
+               {
+                   alert("Phone number is required");
+                   return(false);
+               }
+               else if(uname.value.trim()=="")
+               {
+                   alert("Username is required");
+                   return(false);
+               }
+               else if(pwd.value.trim()=="")
+               {
+                    alert("Password is required");
+                   return(false);
+               }
+               else if(!pwd.value.match(paswd))
+               {
+                   alert("Invalid password!");
+                   return(false);
+               }
+               else
+               {
+                alert("Login Successfull.");
+                    if(document.getElementById("RememberMe").checked==true)
+                    {
+                        CookieGenerate();
+                    }
+                    window.location.replace("index.html");
+               }
+
+            }
+            function CookieGenerate() 
+            {
+                document.cookie="uname="+document.getElementById("uname").value+"; expires=Thu, 17 Dec 2020 12:00:00 UTC";
+                document.cookie="phno="+document.getElementById("phno").value+"; expires=Thu, 17 Dec 2020 12:00:00 UTC";
+                window.location.replace("index.html");
+            }
+            function test(event)
+            {
+                let code=event.which;
+                if(code>47 && code<58)
+                return false;
+                else
+                return true;
+            }
+            function capitalize(textboxid, str) 
+            {
+                if (str && str.length >= 1)
+                {       
+                    var firstChar = str.charAt(0);
+                    var remainingStr = str.slice(1);
+                    str = firstChar.toUpperCase() + remainingStr;
+                }
+                document.getElementById(textboxid).value = str;
+            }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    </body>
+</html>
